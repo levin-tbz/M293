@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🐺SIGMA🐺</title>
+    <title>Rösti</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
   <body>
-    <div id="cursor"></div>
-    <header class="hero">
-      <h1>Rösti</h1>
+    <div class="cursor-follower"></div>
+    
+    <header class="hero-section">
+      <h1 class="hero-title">Rösti</h1>
     </header>
 
-    <main class="content-wrapper" style="background-color: transparent">
-      <section id="intro" style="background-color: transparent">
-        <p class="introduction" style="background-color: transparent">
+    <main class="content-wrapper">
+      <section id="intro" class="recipe-section">
+        <p class="recipe-intro-text">
           There is nothing more comforting than a perfectly executed Swiss
           Rösti, the ultimate mountain comfort food. This recipe transforms
           humble potatoes into a golden-brown masterpiece that is crispy on the
@@ -24,125 +25,115 @@
         </p>
       </section>
 
-      <nav>
-        <h3>Inhalt</h3>
-        <ul>
-          <li><a href="#details">Details & Zutaten</a></li>
-          <li><a href="#steps">Zubereitung</a></li>
-          <li><a href="#links">Weiterführende Links</a></li>
+      <nav class="navigation-menu">
+        <h3 class="section-title">Inhalt</h3>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#details" class="link">Details & Zutaten</a></li>
+          <li class="nav-item"><a href="#steps" class="link">Zubereitung</a></li>
+          <li class="nav-item"><a href="#links" class="link">Links</a></li>
         </ul>
       </nav>
 
       <div class="wiggle-container">
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          class="wiggle-svg"
-        >
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="wiggle-svg">
           <path id="wigglePath" class="wiggle-path"></path>
         </svg>
       </div>
 
-      <section id="details">
-        <div class="metadata">
-          <p><strong>Dauer:</strong> 45 Minutes</p>
-          <p><strong>Personen:</strong> 2-3 People</p>
+      <section id="details" class="recipe-section">
+        <div class="metadata-container">
+          <p class="metadata-item"><strong>Dauer:</strong> 45 Minutes</p>
+          <p class="metadata-item"><strong>Personen:</strong> 2-3 People</p>
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Zutat</th>
-              <th>Menge</th>
-              <th>Einheit</th>
+        <table class="ingredients-table">
+          <thead class="table-head">
+            <tr class="table-row">
+              <th class="table-header">Zutat</th>
+              <th class="table-header">Menge</th>
+              <th class="table-header">Einheit</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Firm-cooking potatoes (parboiled)</td>
-              <td>800</td>
-              <td>Grams</td>
+          <tbody class="table-body">
+            <tr class="table-row">
+              <td class="table-data">Firm-cooking potatoes (parboiled)</td>
+              <td class="table-data">800</td>
+              <td class="table-data">Grams</td>
             </tr>
-            <tr>
-              <td>Clarified butter (Ghee)</td>
-              <td>3</td>
-              <td>Tablespoons</td>
+            <tr class="table-row">
+              <td class="table-data">Clarified butter (Ghee)</td>
+              <td class="table-data">3</td>
+              <td class="table-data">Tablespoons</td>
             </tr>
-            <tr>
-              <td>Fine Sea Salt</td>
-              <td>1</td>
-              <td>Teaspoon</td>
+            <tr class="table-row">
+              <td class="table-data">Fine Sea Salt</td>
+              <td class="table-data">1</td>
+              <td class="table-data">Teaspoon</td>
             </tr>
-            <tr>
-              <td>Cold Water</td>
-              <td>2</td>
-              <td>Tablespoons</td>
+            <tr class="table-row">
+              <td class="table-data">Cold Water</td>
+              <td class="table-data">2</td>
+              <td class="table-data">Tablespoons</td>
             </tr>
-            <tr>
-              <td>Fresh Chives (optional)</td>
-              <td>1</td>
-              <td>Small bunch</td>
+            <tr class="table-row">
+              <td class="table-data">Fresh Chives (optional)</td>
+              <td class="table-data">1</td>
+              <td class="table-data">Small bunch</td>
             </tr>
           </tbody>
         </table>
       </section>
 
-      <section id="steps">
-        <h2>Zubereitung</h2>
-        <ol>
-          <li>
+      <section id="steps" class="recipe-section">
+        <h2 class="section-title">Zubereitung</h2>
+        <ol class="steps-list">
+          <li class="step-item">
             <strong>Grate the Potatoes:</strong> Use a coarse box grater to
             shred the parboiled, peeled potatoes into long, thick strands.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Season:</strong> Gently toss the potato shreds with salt in
             a large bowl, being careful not to mash them.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Heat the Pan:</strong> Melt half of the clarified butter in
             a non-stick skillet over medium heat until shimmering.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Form the Cake:</strong> Add the potatoes to the pan,
             leveling them out with a spatula. Press down lightly to form a
             compact disc.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Initial Fry:</strong> Cook for 12–15 minutes without
             stirring. Occasionally shake the pan to ensure it isn't sticking.
           </li>
-          <li>
+          <li class="step-item">
             <strong>The Flip:</strong> Slide the Rösti onto a large flat plate.
             Place the pan upside down over the plate and flip quickly.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Final Crisp:</strong> Add remaining butter and sprinkle
             water into the sides to create steam. Fry for 10 minutes.
           </li>
-          <li>
+          <li class="step-item">
             <strong>Serve:</strong> Slide onto a board, garnish with chives, and
             slice into wedges.
           </li>
         </ol>
       </section>
 
-      <footer id="links">
-        <h3>Ähnliche Rezepte</h3>
-        <ul>
-          <li>
-            <a href="https://www.seriouseats.com" target="_blank"
-              >Serious Eats: Master the Crispy Rösti</a
-            >
+      <footer id="links" class="footer-links">
+        <h3 class="section-title">Ähnliche Rezepte</h3>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="https://www.seriouseats.com" target="_blank" class="link">Serious Eats: Master the Crispy Rösti</a>
           </li>
-          <li>
-            <a href="https://food52.com" target="_blank"
-              >Food52: Swiss Potato Classics</a
-            >
+          <li class="nav-item">
+            <a href="https://food52.com" target="_blank" class="link">Food52: Swiss Potato Classics</a>
           </li>
-          <li>
-            <a href="https://www.allrecipes.com" target="_blank"
-              >AllRecipes: Potato Side Dishes</a
-            >
+          <li class="nav-item">
+            <a href="https://www.allrecipes.com" target="_blank" class="link">AllRecipes: Potato Side Dishes</a>
           </li>
         </ul>
       </footer>
@@ -150,12 +141,8 @@
 
     <script>
       const path = document.getElementById("wigglePath");
-
-      // --- ADJUST THESE TO TUNE THE WIGGLE ---
-      const frequency = 64; // Higher = more waves
-      const amplitude = 15; // Higher = taller waves
-      // ---------------------------------------
-
+      const frequency = 64; 
+      const amplitude = 15; 
       const width = 1200;
       const step = width / frequency;
       let d = `M 0 60`;
@@ -163,28 +150,23 @@
       for (let i = 0; i < frequency; i++) {
         const x = i * step;
         const nextX = (i + 1) * step;
-
         const cp1x = x + step / 3;
         const cp2x = nextX - step / 3;
-
         const y = i % 2 === 0 ? 60 + amplitude : 60 - amplitude;
-
         d += ` C ${cp1x} ${y} ${cp2x} ${y} ${nextX} 60`;
       }
-
       path.setAttribute("d", d);
 
-      const cursor = document.getElementById("cursor");
-      window.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
+      const cursor = document.querySelector('.cursor-follower');
+      window.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
       });
 
-      window.addEventListener("mousedown", (e) => {
-        if (e.button === 0) {
-          // Left click
-          document.body.classList.toggle("flipped");
-        }
+      window.addEventListener('mousedown', (e) => {
+          if (e.button === 0) {
+              document.body.classList.toggle('flipped');
+          }
       });
     </script>
   </body>

@@ -7,13 +7,14 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
   <body>
+    <div id="cursor"></div>
     <header class="hero">
       <h1>Rösti</h1>
     </header>
 
-    <main class="content-wrapper" style="background-color: transparent;">
-      <section id="intro" style="background-color: transparent;">
-        <p class="introduction" style="background-color: transparent;">
+    <main class="content-wrapper" style="background-color: transparent">
+      <section id="intro" style="background-color: transparent">
+        <p class="introduction" style="background-color: transparent">
           There is nothing more comforting than a perfectly executed Swiss
           Rösti, the ultimate mountain comfort food. This recipe transforms
           humble potatoes into a golden-brown masterpiece that is crispy on the
@@ -172,6 +173,19 @@
       }
 
       path.setAttribute("d", d);
+
+      const cursor = document.getElementById("cursor");
+      window.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+
+      window.addEventListener("mousedown", (e) => {
+        if (e.button === 0) {
+          // Left click
+          document.body.classList.toggle("flipped");
+        }
+      });
     </script>
   </body>
 </html>

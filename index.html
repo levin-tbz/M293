@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐺SIGMA🐺</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Rösti</h1>
+    </header>
+
+    <main class="content-wrapper" style="background-color: transparent;">
+      <section id="intro" style="background-color: transparent;">
+        <p class="introduction" style="background-color: transparent;">
+          There is nothing more comforting than a perfectly executed Swiss
+          Rösti, the ultimate mountain comfort food. This recipe transforms
+          humble potatoes into a golden-brown masterpiece that is crispy on the
+          outside and tender within. Whether served as a hearty breakfast or a
+          side for Zürcher Geschnetzeltes, it’s a masterclass in how simple
+          ingredients can create complex, satisfying textures.
+        </p>
+      </section>
+
+      <nav>
+        <h3>Inhalt</h3>
+        <ul>
+          <li><a href="#details">Details & Zutaten</a></li>
+          <li><a href="#steps">Zubereitung</a></li>
+          <li><a href="#links">Weiterführende Links</a></li>
+        </ul>
+      </nav>
+
+      <div class="wiggle-container">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          class="wiggle-svg"
+        >
+          <path id="wigglePath" class="wiggle-path"></path>
+        </svg>
+      </div>
+
+      <section id="details">
+        <div class="metadata">
+          <p><strong>Dauer:</strong> 45 Minutes</p>
+          <p><strong>Personen:</strong> 2-3 People</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Zutat</th>
+              <th>Menge</th>
+              <th>Einheit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firm-cooking potatoes (parboiled)</td>
+              <td>800</td>
+              <td>Grams</td>
+            </tr>
+            <tr>
+              <td>Clarified butter (Ghee)</td>
+              <td>3</td>
+              <td>Tablespoons</td>
+            </tr>
+            <tr>
+              <td>Fine Sea Salt</td>
+              <td>1</td>
+              <td>Teaspoon</td>
+            </tr>
+            <tr>
+              <td>Cold Water</td>
+              <td>2</td>
+              <td>Tablespoons</td>
+            </tr>
+            <tr>
+              <td>Fresh Chives (optional)</td>
+              <td>1</td>
+              <td>Small bunch</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="steps">
+        <h2>Zubereitung</h2>
+        <ol>
+          <li>
+            <strong>Grate the Potatoes:</strong> Use a coarse box grater to
+            shred the parboiled, peeled potatoes into long, thick strands.
+          </li>
+          <li>
+            <strong>Season:</strong> Gently toss the potato shreds with salt in
+            a large bowl, being careful not to mash them.
+          </li>
+          <li>
+            <strong>Heat the Pan:</strong> Melt half of the clarified butter in
+            a non-stick skillet over medium heat until shimmering.
+          </li>
+          <li>
+            <strong>Form the Cake:</strong> Add the potatoes to the pan,
+            leveling them out with a spatula. Press down lightly to form a
+            compact disc.
+          </li>
+          <li>
+            <strong>Initial Fry:</strong> Cook for 12–15 minutes without
+            stirring. Occasionally shake the pan to ensure it isn't sticking.
+          </li>
+          <li>
+            <strong>The Flip:</strong> Slide the Rösti onto a large flat plate.
+            Place the pan upside down over the plate and flip quickly.
+          </li>
+          <li>
+            <strong>Final Crisp:</strong> Add remaining butter and sprinkle
+            water into the sides to create steam. Fry for 10 minutes.
+          </li>
+          <li>
+            <strong>Serve:</strong> Slide onto a board, garnish with chives, and
+            slice into wedges.
+          </li>
+        </ol>
+      </section>
+
+      <footer id="links">
+        <h3>Ähnliche Rezepte</h3>
+        <ul>
+          <li>
+            <a href="https://www.seriouseats.com" target="_blank"
+              >Serious Eats: Master the Crispy Rösti</a
+            >
+          </li>
+          <li>
+            <a href="https://food52.com" target="_blank"
+              >Food52: Swiss Potato Classics</a
+            >
+          </li>
+          <li>
+            <a href="https://www.allrecipes.com" target="_blank"
+              >AllRecipes: Potato Side Dishes</a
+            >
+          </li>
+        </ul>
+      </footer>
+    </main>
+
+    <script>
+      const path = document.getElementById("wigglePath");
+
+      // --- ADJUST THESE TO TUNE THE WIGGLE ---
+      const frequency = 64; // Higher = more waves
+      const amplitude = 15; // Higher = taller waves
+      // ---------------------------------------
+
+      const width = 1200;
+      const step = width / frequency;
+      let d = `M 0 60`;
+
+      for (let i = 0; i < frequency; i++) {
+        const x = i * step;
+        const nextX = (i + 1) * step;
+
+        const cp1x = x + step / 3;
+        const cp2x = nextX - step / 3;
+
+        const y = i % 2 === 0 ? 60 + amplitude : 60 - amplitude;
+
+        d += ` C ${cp1x} ${y} ${cp2x} ${y} ${nextX} 60`;
+      }
+
+      path.setAttribute("d", d);
+    </script>
+  </body>
+</html>

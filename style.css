@@ -1,0 +1,158 @@
+/* --- STYLEGUIDE ---
+   Colors: 
+     - Golden Brown (#D4A373): Headings, Table Headers, Text Selection, Animated Wiggle Divider
+     - Swiss Red (#E63946): Links
+     - Creamy White (#FAFAF5): Page Background
+     - Charcoal (#2B2D42): Main Body Text
+   
+   Typography:
+     - Font: 'Lato', sans-serif (Clean, modern readability)
+     - Titles: Uppercase with letter-spacing for high impact
+   
+   Layout & Spacing:
+     - Content Width: 800px max (Optimized for readability)
+     - Section Padding: 3rem (Generous breathing room)
+     - Divider: Animated SVG Sine-Wave
+--------------------- */
+
+::selection {
+  background-color: #d4a373;
+  color: white;
+}
+
+body {
+  background-color: #fafaf5;
+  color: #2b2d42;
+  font-family: "Lato", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  /* top: -50%;
+    left: -50%; */
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./rösti.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: rotation 1s linear infinite;
+}
+
+h1 {
+  color: white;
+  font-size: 5rem;
+  text-transform: uppercase;
+  margin: 0;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.wiggle-container {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: 2rem 0;
+}
+
+.wiggle-svg {
+  width: 200%;
+  height: 40px;
+  fill: none;
+  stroke: #d4a373;
+  stroke-width: 2;
+  stroke-linecap: round;
+  animation: moveWave 20s linear infinite;
+}
+
+.wiggle-path {
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes moveWave {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  background-color: transparent;
+}
+
+h2,
+h3 {
+  color: #d4a373;
+  display: inline-block;
+  margin: 0;
+}
+
+ul,
+ol {
+  padding-left: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #d4a373;
+  color: white;
+}
+
+ol li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+a {
+  color: #e63946;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

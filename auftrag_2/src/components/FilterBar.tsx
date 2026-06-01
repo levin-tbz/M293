@@ -7,6 +7,8 @@ interface FilterBarProps {
   setFilterType: (type: string) => void;
   showAddForm: boolean;
   setShowAddForm: (show: boolean) => void;
+  layoutMode: "grid" | "flex";
+  setLayoutMode: (mode: "grid" | "flex") => void;
 }
 
 export const FilterBar: React.FC<FilterBarProps> = ({
@@ -15,7 +17,9 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   filterType,
   setFilterType,
   showAddForm,
-  setShowAddForm
+  setShowAddForm,
+  layoutMode,
+  setLayoutMode
 }) => {
   return (
     <section className="action-bar" aria-label="Sammlungsaktionen">
@@ -39,6 +43,16 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               </button>
             </li>
           ))}
+          
+          <li style={{ marginLeft: "auto" }}>
+            <button
+              className="filter-btn"
+              onClick={() => setLayoutMode(layoutMode === "grid" ? "flex" : "grid")}
+              title="Darstellung wechseln"
+            >
+              Ansicht: {layoutMode === "grid" ? "Grid" : "Flex"}
+            </button>
+          </li>
         </menu>
       </nav>
 

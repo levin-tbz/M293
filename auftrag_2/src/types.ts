@@ -9,4 +9,5 @@ export interface MediaItem {
   rating: number;
   description: string;
   imageUrl?: string;
+  linkUrl: string;
 }

@@ -22,7 +22,11 @@ export const MediaCard: React.FC<MediaCardProps> = ({ item, onDelete }) => {
         </output>
       </header>
       
-      <h3 className="card-title">{item.title}</h3>
+      <h3 className="card-title">
+        <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="card-title-link">
+          {item.title}
+        </a>
+      </h3>
       <p className="card-creator">{item.creator}</p>
       <time className="card-year" dateTime={item.year}>Erschienen: {item.year}</time>
       

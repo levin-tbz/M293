@@ -26,10 +26,11 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
   const [rating, setRating] = useState("10.0");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [linkUrl, setLinkUrl] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title.trim()) return;
+    if (!title.trim() || !linkUrl.trim()) return;
 
     onAdd({
       title: title.trim(),
@@ -38,7 +39,8 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
       year: year.trim() || new Date().getFullYear().toString(),
       rating: parseFloat(rating) || 10.0,
       description: description.trim() || "Keine Beschreibung vorhanden.",
-      imageUrl: imageUrl.trim() || undefined
+      imageUrl: imageUrl.trim() || undefined,
+      linkUrl: linkUrl.trim()
     });
 
     setTitle("");
@@ -48,6 +50,7 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
     setRating("10.0");
     setDescription("");
     setImageUrl("");
+    setLinkUrl("");
   };
 
   return (
@@ -126,6 +129,19 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
               />
             </section>
           </fieldset>
+        </section>
+
+        <section className="form-group form-group-full">
+          <label className="form-label" htmlFor="linkUrl">Link-URL (z.B. Netflix, Spotify) *</label>
+          <input
+            id="linkUrl"
+            type="url"
+            className="form-input"
+            placeholder="z.B. https://netflix.com"
+            value={linkUrl}
+            onChange={(e) => setLinkUrl(e.target.value)}
+            required
+          />
         </section>
 
         <section className="form-group form-group-full">

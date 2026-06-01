@@ -2,6 +2,7 @@
   "name": "auftrag_2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://levin-tbz.github.io/M293",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -15,6 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -41,6 +44,7 @@
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
+    "gh-pages": "^6.3.0",
     "typescript": "^6.0.3"
   }
 }

@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/M293/static/css/main.96a607e9.css",
-    "main.js": "/M293/static/js/main.5afeb492.js",
+    "main.js": "/M293/static/js/main.a806b961.js",
+    "static/media/exclamation-mark-svgrepo-com.svg": "/M293/static/media/exclamation-mark-svgrepo-com.4b081494c1a9955ac8f986ed3c0b917f.svg",
     "index.html": "/M293/index.html",
     "main.96a607e9.css.map": "/M293/static/css/main.96a607e9.css.map",
-    "main.5afeb492.js.map": "/M293/static/js/main.5afeb492.js.map"
+    "main.a806b961.js.map": "/M293/static/js/main.a806b961.js.map"
   },
   "entrypoints": [
     "static/css/main.96a607e9.css",
-    "static/js/main.5afeb492.js"
+    "static/js/main.a806b961.js"
   ]
 }

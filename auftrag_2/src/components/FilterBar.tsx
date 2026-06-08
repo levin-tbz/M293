@@ -19,10 +19,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   showAddForm,
   setShowAddForm,
   layoutMode,
-  setLayoutMode
+  setLayoutMode,
 }) => {
   return (
-    <section className="action-bar" aria-label="Sammlungsaktionen">
+  <section className="action-bar" aria-label="Sammlungsaktionen">
       <nav className="search-filter-group" aria-label="Mediensuche und Filter">
         <input
           type="search"
@@ -39,15 +39,17 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 className={`filter-btn ${filterType === type ? "active" : ""}`}
                 onClick={() => setFilterType(type)}
               >
-                {type === "Alle" ? "Alle" : type === "Film" ? "Filme" : type === "Album" ? "Alben" : "Spiele"}
+                {type}
               </button>
             </li>
           ))}
-          
+
           <li style={{ marginLeft: "auto" }}>
             <button
               className="filter-btn"
-              onClick={() => setLayoutMode(layoutMode === "grid" ? "flex" : "grid")}
+              onClick={() =>
+                setLayoutMode(layoutMode === "grid" ? "flex" : "grid")
+              }
               title="Darstellung wechseln"
             >
               Ansicht: {layoutMode === "grid" ? "Grid" : "Flex"}
@@ -56,7 +58,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         </menu>
       </nav>
 
-      <button 
+      <button
         className="add-toggle-btn"
         onClick={() => setShowAddForm(!showAddForm)}
         aria-expanded={showAddForm}

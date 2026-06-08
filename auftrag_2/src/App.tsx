@@ -4,6 +4,7 @@ import { MediaItem } from "./types";
 import { MediaCard } from "./components/MediaCard";
 import { AddMediaForm } from "./components/AddMediaForm";
 import { FilterBar } from "./components/FilterBar";
+import exclamationMark from "./assets/exclamation-mark-svgrepo-com.svg";
 
 const initialMedia: MediaItem[] = [
   {
@@ -13,9 +14,11 @@ const initialMedia: MediaItem[] = [
     creator: "Christopher Nolan",
     year: "2010",
     rating: 9.0,
-    description: "Ein wegweisender Science-Fiction-Thriller über das Eindringen in Träume und Spionage.",
-    imageUrl: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&auto=format&fit=crop&q=80",
-    linkUrl: "https://www.netflix.com/title/70131314"
+    description:
+      "Ein wegweisender Science-Fiction-Thriller über das Eindringen in Träume und Spionage.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&auto=format&fit=crop&q=80",
+    linkUrl: "https://www.netflix.com/title/70131314",
   },
   {
     id: "2",
@@ -24,9 +27,11 @@ const initialMedia: MediaItem[] = [
     creator: "Daft Punk",
     year: "2013",
     rating: 9.5,
-    description: "Ein meisterhaftes Elektronik-Album, das den Geist des späten 70er-Disco wiederbelebt.",
-    imageUrl: "https://images.unsplash.com/photo-1487180142328-0c4e37023af5?w=500&auto=format&fit=crop&q=80",
-    linkUrl: "https://open.spotify.com/album/4m28wbYF64jTyRLmITXaZg"
+    description:
+      "Ein meisterhaftes Elektronik-Album, das den Geist des späten 70er-Disco wiederbelebt.",
+    imageUrl:
+      "https://i.scdn.co/image/ab67616d0000b2739b9b36b0e22870b9f542d937",
+    linkUrl: "https://www.youtube.com/watch?v=wIMSU8otS-g",
   },
   {
     id: "3",
@@ -35,10 +40,13 @@ const initialMedia: MediaItem[] = [
     creator: "Nintendo",
     year: "2017",
     rating: 9.8,
-    description: "Ein revolutionäres Open-World-Abenteuer mit beispielloser Freiheit in Hyrule.",
-    imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&auto=format&fit=crop&q=80",
-    linkUrl: "https://www.nintendo.com/store/products/the-legend-of-zelda-breath-of-the-wild-switch/"
-  }
+    description:
+      "Ein revolutionäres Open-World-Abenteuer mit beispielloser Freiheit in Hyrule.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&auto=format&fit=crop&q=80",
+    linkUrl:
+      "https://www.nintendo.com/store/products/the-legend-of-zelda-breath-of-the-wild-switch/",
+  },
 ];
 
 function App() {
@@ -49,7 +57,9 @@ function App() {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed)) {
           return parsed.map((item: any) => {
-            const initialMatch = initialMedia.find(init => init.id === item.id);
+            const initialMatch = initialMedia.find(
+              (init) => init.id === item.id,
+            );
             return initialMatch ? initialMatch : item;
           });
         }
@@ -72,19 +82,19 @@ function App() {
   const handleAddItem = (item: Omit<MediaItem, "id">) => {
     const newItem: MediaItem = {
       id: Date.now().toString(),
-      ...item
+      ...item,
     };
     setCollection([newItem, ...collection]);
     setShowAddForm(false);
   };
 
   const handleDeleteItem = (id: string) => {
-    setCollection(collection.filter(item => item.id !== id));
+    setCollection(collection.filter((item) => item.id !== id));
   };
 
-  const filteredCollection = collection.filter(item => {
+  const filteredCollection = collection.filter((item) => {
     const matchesFilter = filterType === "Alle" || item.type === filterType;
-    const matchesSearch = 
+    const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.creator.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -95,7 +105,6 @@ function App() {
     <main className="container">
       <header className="header">
         <h1>Mediensammlung</h1>
-        <p>Deine persönliche Bibliothek für Filme, Alben und Spiele</p>
       </header>
 
       <FilterBar
@@ -116,20 +125,24 @@ function App() {
         />
       )}
 
-      <section className={layoutMode === "grid" ? "media-grid" : "media-flex"} aria-label="Mediensammlung Einträge">
+      <section
+        className={layoutMode === "grid" ? "media-grid" : "media-flex"}
+        aria-label="Mediensammlung Einträge"
+      >
         {filteredCollection.length > 0 ? (
           filteredCollection.map((item) => (
-            <MediaCard
-              key={item.id}
-              item={item}
-              onDelete={handleDeleteItem}
-            />
+            <MediaCard key={item.id} item={item} onDelete={handleDeleteItem} />
           ))
         ) : (
           <section className="empty-state">
-            <h3>Keine Einträge gefunden</h3>
-            <p>Es gibt keine Medien, die deiner Suche oder deinem Filter entsprechen.</p>
-            <button 
+            <img
+              src={exclamationMark}
+              style={{
+                width: "20%",
+              }}
+            />
+            <h3>NOT FOUND</h3>
+            <button
               className="btn-primary"
               onClick={() => {
                 setSearchQuery("");

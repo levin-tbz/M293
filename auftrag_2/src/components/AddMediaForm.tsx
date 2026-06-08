@@ -6,24 +6,15 @@ interface AddMediaFormProps {
   onClose: () => void;
 }
 
-const creatorLabels: Record<MediaType, string> = {
-  Film: "Regisseur",
-  Album: "Künstler",
-  Game: "Entwickler"
-};
-
-const creatorPlaceholders: Record<MediaType, string> = {
-  Film: "z.B. Christopher Nolan",
-  Album: "z.B. Daft Punk",
-  Game: "z.B. Nintendo"
-};
-
-export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) => {
+export const AddMediaForm: React.FC<AddMediaFormProps> = ({
+  onAdd,
+  onClose,
+}) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState<MediaType>("Film");
   const [creator, setCreator] = useState("");
-  const [year, setYear] = useState("");
-  const [rating, setRating] = useState("10.0");
+  const [year, setYear] = useState(new Date().getFullYear().toString());
+  const [rating, setRating] = useState("6.7");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
@@ -40,7 +31,7 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
       rating: parseFloat(rating) || 10.0,
       description: description.trim() || "Keine Beschreibung vorhanden.",
       imageUrl: imageUrl.trim() || undefined,
-      linkUrl: linkUrl.trim()
+      linkUrl: linkUrl.trim(),
     });
 
     setTitle("");
@@ -57,9 +48,11 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
     <form onSubmit={handleSubmit} className="form-card">
       <fieldset className="form-grid">
         <legend className="form-title">Neues Medium hinzufügen</legend>
-        
+
         <section className="form-group">
-          <label className="form-label" htmlFor="title">Titel *</label>
+          <label className="form-label" htmlFor="title">
+            Titel *
+          </label>
           <input
             id="title"
             type="text"
@@ -72,7 +65,9 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
         </section>
 
         <section className="form-group">
-          <label className="form-label" htmlFor="type">Typ</label>
+          <label className="form-label" htmlFor="type">
+            Typ
+          </label>
           <select
             id="type"
             className="form-select"
@@ -86,12 +81,14 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
         </section>
 
         <section className="form-group">
-          <label className="form-label" htmlFor="creator">{creatorLabels[type]}</label>
+          <label className="form-label" htmlFor="creator">
+            Ersteller
+          </label>
           <input
             id="creator"
             type="text"
             className="form-input"
-            placeholder={creatorPlaceholders[type]}
+            placeholder={"z.B. levison"}
             value={creator}
             onChange={(e) => setCreator(e.target.value)}
           />
@@ -101,20 +98,21 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
           <fieldset className="form-row-grid">
             <legend style={{ display: "none" }}>Jahr und Bewertung</legend>
             <section className="form-group">
-              <label className="form-label" htmlFor="year">Jahr</label>
+              <label className="form-label" htmlFor="year">
+                Jahr
+              </label>
               <input
                 id="year"
                 type="number"
-                min="1800"
-                max="2100"
                 className="form-input"
-                placeholder={new Date().getFullYear().toString()}
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
               />
             </section>
             <section className="form-group">
-              <label className="form-label" htmlFor="rating">Bewertung (von 10) *</label>
+              <label className="form-label" htmlFor="rating">
+                Bewertung (von 10) *
+              </label>
               <input
                 id="rating"
                 type="number"
@@ -132,7 +130,9 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
         </section>
 
         <section className="form-group form-group-full">
-          <label className="form-label" htmlFor="linkUrl">Link-URL (z.B. Netflix, Spotify) *</label>
+          <label className="form-label" htmlFor="linkUrl">
+            Link-URL*
+          </label>
           <input
             id="linkUrl"
             type="url"
@@ -145,7 +145,9 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
         </section>
 
         <section className="form-group form-group-full">
-          <label className="form-label" htmlFor="imageUrl">Bild-URL (optional)</label>
+          <label className="form-label" htmlFor="imageUrl">
+            Bild-URL (optional)
+          </label>
           <input
             id="imageUrl"
             type="url"
@@ -157,7 +159,9 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
         </section>
 
         <section className="form-group form-group-full">
-          <label className="form-label" htmlFor="description">Beschreibung</label>
+          <label className="form-label" htmlFor="description">
+            Beschreibung
+          </label>
           <textarea
             id="description"
             className="form-textarea"
@@ -169,14 +173,12 @@ export const AddMediaForm: React.FC<AddMediaFormProps> = ({ onAdd, onClose }) =>
       </fieldset>
 
       <footer className="form-actions">
-        <button 
-          type="button" 
-          className="btn-secondary" 
-          onClick={onClose}
-        >
+        <button type="button" className="btn-secondary" onClick={onClose}>
           Abbrechen
         </button>
-        <button type="submit" className="btn-primary">Hinzufügen</button>
+        <button type="submit" className="btn-primary">
+          Hinzufügen
+        </button>
       </footer>
     </form>
   );

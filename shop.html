@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stöbern Sie durch unsere Produktpalette bei CasaMöbel. Filtern Sie Artikel nach Kategorien und finden Sie das passende Einrichtungsstück für Ihr Zuhause.">
+  <title>Produkte | CasaMöbel Webshop</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <style>
+    /* Specific styles for shop filters */
+    .filters-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xl);
+      justify-content: center;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      background-color: var(--panel-bg);
+      color: var(--text-muted);
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">CasaMöbel</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html" class="active">Produkte</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="cart.html" class="nav-icon-link">🛒 Warenkorb <span id="cart-count" class="badge-count" style="display: none;">0</span></a></li>
+          <li id="user-nav"><a href="profile.html">Anmelden</a></li>
+          <li><button id="theme-toggle" class="theme-toggle-btn" aria-label="Design umschalten">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CATALOG -->
+  <main>
+    <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+      <h1 style="font-size: var(--text-3xl); margin-bottom: var(--spacing-xs);">Produktübersicht</h1>
+      <p style="color: var(--text-muted);">Erkunden Sie unsere handverlesenen, smarten Produkte.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div id="category-filters" class="filters-wrapper">
+      <!-- Filter buttons rendered dynamically via JS -->
+    </div>
+
+    <!-- Products Grid -->
+    <div id="catalog-grid" class="grid-container">
+      <!-- Product cards rendered dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>CasaMöbel</h3>
+        <p style="color: #94a3b8; font-size: var(--text-sm);">Ihr Experte für stilvolles Wohnen und hochwertige Möbelstücke.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Links</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--spacing-sm); padding: 0;">
+          <li><a href="index.html" style="color: #94a3b8; font-size: var(--text-sm);">Home</a></li>
+          <li><a href="shop.html" style="color: #94a3b8; font-size: var(--text-sm);">Produkte</a></li>
+          <li><a href="contact.html" style="color: #94a3b8; font-size: var(--text-sm);">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter abonnieren</h3>
+        <p style="color: #94a3b8; font-size: var(--text-sm); margin-bottom: var(--spacing-sm);">Erhalten Sie die neusten Aktionen & Updates direkt im Postfach.</p>
+        <form id="newsletter-footer-form" class="newsletter-form">
+          <input type="email" placeholder="E-Mail-Adresse" required aria-label="E-Mail für Newsletter">
+          <button type="submit">Abonnieren</button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 CasaMöbel Webshop. Alle Rechte vorbehalten. M293 Projektauftrag 3.
+    </div>
+  </footer>
+
+</body>
+</html>
